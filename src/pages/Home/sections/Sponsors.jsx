@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 
 // Importe les logos de tes sponsors
 import sponsor1 from '../../../assets/sponsors/Yas.png';
-import sponsor2 from '../../../assets/sponsors/Yas.png';
+import sponsor2 from '../../../assets/sponsors/fmbb lgo.png';
 import sponsor3 from '../../../assets/sponsors/Yas.png';
-import sponsor4 from '../../../assets/sponsors/Yas.png';
+import sponsor4 from '../../../assets/sponsors/fmbb lgo.png';
 import sponsor5 from '../../../assets/sponsors/Yas.png';
-import sponsor6 from '../../../assets/sponsors/Yas.png';
+import sponsor6 from '../../../assets/sponsors/fmbb lgo.png';
 import sponsor7 from '../../../assets/sponsors/Yas.png';
-import sponsor8 from '../../../assets/sponsors/Yas.png';
+import sponsor8 from '../../../assets/sponsors/fmbb lgo.png';
 
 const Sponsors = () => {
     const navigate = useNavigate();

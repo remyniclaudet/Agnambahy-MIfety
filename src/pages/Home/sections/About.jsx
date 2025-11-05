@@ -1,5 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
 import aboutImage from '../../../assets/AM7.jpg'
+import { 
+  FaCalendarAlt,
+  FaCrosshairs,
+  FaHeart,
+  FaUsers,
+  FaEye,
+  FaBasketballBall,
+  FaVolleyballBall,
+  FaFutbol,
+  FaMusic,
+  FaHandsHelping,
+  FaLightbulb,
+  FaPalette,
+  FaChartLine
+} from 'react-icons/fa'
 
 const About = () => {
     const [isVisible, setIsVisible] = useState(false)
@@ -67,7 +82,7 @@ const About = () => {
                         {/* Historique */}
                         <div className={`relative scroll-reveal ${isVisible ? 'revealed' : ''}`} style={{transitionDelay: '0.2s'}}>
                             <div className="absolute -left-8 top-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center icon-bounce">
-                                <span className="text-2xl">📅</span>
+                                <FaCalendarAlt className="text-primary text-xl" />
                             </div>
                             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 flex items-center">
                                 <span className="w-3 h-3 bg-primary rounded-full mr-3 pulse-slow"></span>
@@ -84,7 +99,7 @@ const About = () => {
                         {/* Objectifs */}
                         <div className={`relative scroll-reveal ${isVisible ? 'revealed' : ''}`} style={{transitionDelay: '0.4s'}}>
                             <div className="absolute -left-8 top-0 w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center icon-bounce">
-                                <span className="text-2xl">🎯</span>
+                                <FaCrosshairs className="text-secondary text-xl" />
                             </div>
                             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
                                 <span className="w-3 h-3 bg-secondary rounded-full mr-3 pulse-slow"></span>
@@ -92,25 +107,45 @@ const About = () => {
                             </h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="bg-primary/5 p-4 rounded-lg border-l-4 border-primary card-hover group">
-                                    <h4 className="font-semibold text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">Promouvoir le sport et l'unité régionale</h4>
+                                    <div className="flex items-center mb-2">
+                                        <FaHandsHelping className="text-primary mr-2 text-sm" />
+                                        <h4 className="font-semibold text-primary group-hover:translate-x-2 transition-transform duration-300">
+                                            Promouvoir le sport et l'unité régionale
+                                        </h4>
+                                    </div>
                                     <p className="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         Favoriser la cohésion sociale à travers le sport
                                     </p>
                                 </div>
                                 <div className="bg-secondary/5 p-4 rounded-lg border-l-4 border-secondary card-hover group">
-                                    <h4 className="font-semibold text-secondary mb-2 group-hover:translate-x-2 transition-transform duration-300">Encourager les jeunes talents</h4>
+                                    <div className="flex items-center mb-2">
+                                        <FaLightbulb className="text-secondary mr-2 text-sm" />
+                                        <h4 className="font-semibold text-secondary group-hover:translate-x-2 transition-transform duration-300">
+                                            Encourager les jeunes talents
+                                        </h4>
+                                    </div>
                                     <p className="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         Détecter et valoriser les potentiels locaux
                                     </p>
                                 </div>
                                 <div className="bg-primary/5 p-4 rounded-lg border-l-4 border-primary card-hover group">
-                                    <h4 className="font-semibold text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">Développer la culture et les loisirs</h4>
+                                    <div className="flex items-center mb-2">
+                                        <FaPalette className="text-primary mr-2 text-sm" />
+                                        <h4 className="font-semibold text-primary group-hover:translate-x-2 transition-transform duration-300">
+                                            Développer la culture et les loisirs
+                                        </h4>
+                                    </div>
                                     <p className="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         Enrichir le paysage culturel de Farafangana
                                     </p>
                                 </div>
                                 <div className="bg-secondary/5 p-4 rounded-lg border-l-4 border-secondary card-hover group">
-                                    <h4 className="font-semibold text-secondary mb-2 group-hover:translate-x-2 transition-transform duration-300">Attirer des partenaires pour soutenir la jeunesse</h4>
+                                    <div className="flex items-center mb-2">
+                                        <FaChartLine className="text-secondary mr-2 text-sm" />
+                                        <h4 className="font-semibold text-secondary group-hover:translate-x-2 transition-transform duration-300">
+                                            Attirer des partenaires pour soutenir la jeunesse
+                                        </h4>
+                                    </div>
                                     <p className="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         Créer des opportunités de développement
                                     </p>
@@ -121,23 +156,27 @@ const About = () => {
                         {/* Valeurs */}
                         <div className={`relative scroll-reveal ${isVisible ? 'revealed' : ''}`} style={{transitionDelay: '0.6s'}}>
                             <div className="absolute -left-8 top-0 w-12 h-12 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full flex items-center justify-center icon-bounce">
-                                <span className="text-2xl">❤️</span>
+                                <FaHeart className="text-red-500 text-xl" />
                             </div>
                             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
                                 <span className="w-3 h-3 bg-gradient-to-r from-primary to-secondary rounded-full mr-3 pulse-slow"></span>
                                 Valeurs
                             </h3>
                             <div className="flex flex-wrap gap-3">
-                                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold card-hover transform hover:scale-110 transition-all duration-300">
+                                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold card-hover transform hover:scale-110 transition-all duration-300 flex items-center">
+                                    <FaHandsHelping className="mr-2" />
                                     Solidarité
                                 </span>
-                                <span className="px-4 py-2 bg-secondary/10 text-secondary rounded-full font-semibold card-hover transform hover:scale-110 transition-all duration-300">
+                                <span className="px-4 py-2 bg-secondary/10 text-secondary rounded-full font-semibold card-hover transform hover:scale-110 transition-all duration-300 flex items-center">
+                                    <FaHeart className="mr-2" />
                                     Respect
                                 </span>
-                                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold card-hover transform hover:scale-110 transition-all duration-300">
+                                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold card-hover transform hover:scale-110 transition-all duration-300 flex items-center">
+                                    <FaChartLine className="mr-2" />
                                     Excellence
                                 </span>
-                                <span className="px-4 py-2 bg-secondary/10 text-secondary rounded-full font-semibold card-hover transform hover:scale-110 transition-all duration-300">
+                                <span className="px-4 py-2 bg-secondary/10 text-secondary rounded-full font-semibold card-hover transform hover:scale-110 transition-all duration-300 flex items-center">
+                                    <FaUsers className="mr-2" />
                                     Fierté régionale
                                 </span>
                             </div>
@@ -148,18 +187,22 @@ const About = () => {
                 {/* Statistiques avec animations */}
                 <div className={`mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{animationDelay: '0.8s'}}>
                     <div className="text-center card-hover p-6 rounded-xl bg-gradient-to-br from-white to-gray-50 shadow-lg">
+                        <FaCalendarAlt className="text-primary text-2xl mx-auto mb-3" />
                         <div className="text-3xl md:text-4xl font-bold text-primary mb-2 count-up">3+</div>
                         <div className="text-gray-600 font-semibold">Éditions réussies</div>
                     </div>
                     <div className="text-center card-hover p-6 rounded-xl bg-gradient-to-br from-white to-gray-50 shadow-lg">
+                        <FaBasketballBall className="text-secondary text-2xl mx-auto mb-3" />
                         <div className="text-3xl md:text-4xl font-bold text-secondary mb-2 count-up">15+</div>
                         <div className="text-gray-600 font-semibold">Disciplines</div>
                     </div>
                     <div className="text-center card-hover p-6 rounded-xl bg-gradient-to-br from-white to-gray-50 shadow-lg">
+                        <FaUsers className="text-primary text-2xl mx-auto mb-3" />
                         <div className="text-3xl md:text-4xl font-bold text-primary mb-2 count-up">500+</div>
                         <div className="text-gray-600 font-semibold">Participants</div>
                     </div>
                     <div className="text-center card-hover p-6 rounded-xl bg-gradient-to-br from-white to-gray-50 shadow-lg">
+                        <FaEye className="text-secondary text-2xl mx-auto mb-3" />
                         <div className="text-3xl md:text-4xl font-bold text-secondary mb-2 count-up">10k+</div>
                         <div className="text-gray-600 font-semibold">Spectateurs</div>
                     </div>
