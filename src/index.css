@@ -8,6 +8,10 @@
     font-family: 'Montserrat', sans-serif;
   }
   
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     @apply bg-white text-gray-800;
   }
@@ -23,18 +27,316 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50;
   }
   
   .btn-secondary {
-    @apply bg-secondary hover:bg-secondary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply bg-secondary hover:bg-secondary/90 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50;
   }
   
   .nav-link {
-    @apply text-gray-700 hover:text-primary font-bold px-3 py-2 rounded-md text-sm;
+    @apply text-gray-700 hover:text-primary font-bold px-3 py-2 rounded-md text-sm transition-all duration-300 relative;
   }
   
   .mobile-nav-link {
-    @apply text-gray-700 hover:text-primary font-bold block px-3 py-2 rounded-md text-base;
+    @apply text-gray-700 hover:text-primary font-bold block px-3 py-2 rounded-md text-base transition-all duration-300;
+  }
+  
+  /* Animation pour le navbar */
+  .navbar-scrolled {
+    @apply bg-white/95 backdrop-blur-sm shadow-lg;
+  }
+  
+  /* Animation pour les liens de navigation */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #3b82f6; /* primary color */
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  .nav-link:hover::after {
+    width: 80%;
+  }
+  
+  /* Animation pour les sous-menus */
+  .dropdown-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  .dropdown-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  .dropdown-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .dropdown-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+}
+
+@layer utilities {
+  /* Animation pour le défilement des sponsors */
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-150px * 8)); /* Ajuste selon le nombre de sponsors */
+    }
+  }
+  
+  /* Animation pour le hero section */
+  .hero-fade-in {
+    animation: heroFadeIn 1.5s ease-out forwards;
+  }
+  
+  @keyframes heroFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Animations générales pour les sections */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+  
+  @keyframes scaleIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .slide-in-bottom {
+    animation: slideInBottom 0.8s ease-out forwards;
+  }
+  
+  @keyframes slideInBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animation pour les cartes et éléments interactifs */
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* Animation pour les images */
+  .image-zoom {
+    transition: transform 0.5s ease;
+  }
+  
+  .image-zoom:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Animation pour les boutons avec effet de remplissage */
+  .btn-fill {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .btn-fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+    z-index: -1;
+  }
+  
+  .btn-fill:hover::before {
+    left: 100%;
+  }
+  
+  /* Animation pour les éléments qui apparaissent au scroll */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+  }
+  
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Animation pour les icônes */
+  .icon-bounce {
+    animation: iconBounce 2s infinite;
+  }
+  
+  @keyframes iconBounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* Animation pour les lignes décoratives */
+  .line-grow {
+    animation: lineGrow 1.5s ease-out forwards;
+  }
+  
+  @keyframes lineGrow {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 6rem;
+    }
+  }
+  
+  /* Animation pour les compteurs */
+  .count-up {
+    animation: countUp 2s ease-out forwards;
+  }
+  
+  @keyframes countUp {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Animation pour les éléments de chargement */
+  .pulse-slow {
+    animation: pulse 3s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  /* Animation pour les éléments flottants */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Animation pour les éléments qui tournent */
+  .spin-slow {
+    animation: spin 8s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 }
