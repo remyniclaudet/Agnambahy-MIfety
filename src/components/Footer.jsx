@@ -1,4 +1,19 @@
 import React from 'react';
+import { 
+    FaFacebook, 
+    FaWhatsapp, 
+    FaEnvelope, 
+    FaHome, 
+    FaInfoCircle, 
+    FaCalendarAlt, 
+    FaHandshake, 
+    FaDonate, 
+    FaPhone, 
+    FaTrophy,
+    FaHistory,
+    FaHeart,
+    FaUsers
+} from 'react-icons/fa';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -66,20 +81,23 @@ const Footer = () => {
                                 <button
                                     onClick={openFacebook}
                                     className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-all duration-200 transform hover:scale-110"
+                                    aria-label="Facebook"
                                 >
-                                    <span className="text-white">📘</span>
+                                    <FaFacebook className="text-white text-lg" />
                                 </button>
                                 <button
                                     onClick={openWhatsApp}
                                     className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-all duration-200 transform hover:scale-110"
+                                    aria-label="WhatsApp"
                                 >
-                                    <span className="text-white">💬</span>
+                                    <FaWhatsapp className="text-white text-lg" />
                                 </button>
                                 <a
                                     href="mailto:agnambahymifety@gmail.com"
                                     className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-all duration-200 transform hover:scale-110"
+                                    aria-label="Email"
                                 >
-                                    <span className="text-white">✉️</span>
+                                    <FaEnvelope className="text-white text-lg" />
                                 </a>
                             </div>
                         </div>
@@ -91,72 +109,80 @@ const Footer = () => {
                                 <li>
                                     <button
                                         onClick={() => scrollToSection('hero')}
-                                        className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm"
+                                        className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm flex items-center space-x-2 w-full text-left"
                                     >
-                                        Accueil
+                                        <FaHome className="w-4 h-4" />
+                                        <span>Accueil</span>
                                     </button>
                                 </li>
                                 <li>
                                     <button
                                         onClick={() => scrollToSection('apropos')}
-                                        className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm"
+                                        className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm flex items-center space-x-2 w-full text-left"
                                     >
-                                        À propos
+                                        <FaInfoCircle className="w-4 h-4" />
+                                        <span>À propos</span>
                                     </button>
                                 </li>
                                 <li>
                                     <button
                                         onClick={() => handleEventsNavigation('prochaine-edition')}
-                                        className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm"
+                                        className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm flex items-center space-x-2 w-full text-left"
                                     >
-                                        Événements
+                                        <FaCalendarAlt className="w-4 h-4" />
+                                        <span>Événements</span>
                                     </button>
                                 </li>
                                 <li>
                                     <button
                                         onClick={() => scrollToSection('sponsors')}
-                                        className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm"
+                                        className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm flex items-center space-x-2 w-full text-left"
                                     >
-                                        Sponsors
+                                        <FaHandshake className="w-4 h-4" />
+                                        <span>Sponsors</span>
                                     </button>
                                 </li>
                             </ul>
                         </div>
 
-                        {/* Lires ressources */}
+                        {/* Liens ressources */}
                         <div>
                             <h3 className="text-lg font-semibold text-white mb-4">Ressources</h3>
                             <ul className="space-y-2">
                                 <li>
                                     <button
                                         onClick={() => scrollToSection('donation')}
-                                        className="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm"
+                                        className="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm flex items-center space-x-2 w-full text-left"
                                     >
-                                        Faire un don
+                                        <FaDonate className="w-4 h-4" />
+                                        <span>Faire un don</span>
                                     </button>
                                 </li>
                                 <li>
                                     <button
                                         onClick={() => scrollToSection('contact')}
-                                        className="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm"
+                                        className="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm flex items-center space-x-2 w-full text-left"
                                     >
-                                        Contact
+                                        <FaPhone className="w-4 h-4" />
+                                        <span>Contact</span>
                                     </button>
                                 </li>
                                 <li>
                                     <button
                                         onClick={() => handleEventsNavigation('disciplines')}
-                                        className="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm"
+                                        className="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm flex items-center space-x-2 w-full text-left"
                                     >
-                                        Disciplines
+                                        <FaTrophy className="w-4 h-4" />
+                                        <span>Disciplines</span>
                                     </button>
                                 </li>
                                 <li>
                                     <button
                                         onClick={() => handleEventsNavigation('archives')}
-                                        className="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm"
+                                        className="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm flex items-center space-x-2 w-full text-left"
                                     >
-                                        Archives
+                                        <FaHistory className="w-4 h-4" />
+                                        <span>Archives</span>
                                     </button>
                                 </li>
                             </ul>
@@ -167,28 +193,28 @@ const Footer = () => {
                             <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
                             <div className="space-y-3">
                                 <div className="flex items-center space-x-3">
-                                    <span className="text-primary">✉️</span>
+                                    <FaEnvelope className="text-primary text-lg flex-shrink-0" />
                                     <a 
                                         href="mailto:agnambahymifety@gmail.com"
-                                        className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm"
+                                        className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm break-words"
                                     >
                                         agnambahymifety@gmail.com
                                     </a>
                                 </div>
                                 <div className="flex items-center space-x-3">
-                                    <span className="text-secondary">💬</span>
+                                    <FaWhatsapp className="text-secondary text-lg flex-shrink-0" />
                                     <button
                                         onClick={openWhatsApp}
-                                        className="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm"
+                                        className="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm text-left"
                                     >
                                         +261 34 21 068 88
                                     </button>
                                 </div>
                                 <div className="flex items-center space-x-3">
-                                    <span className="text-primary">📘</span>
+                                    <FaFacebook className="text-primary text-lg flex-shrink-0" />
                                     <button
                                         onClick={openFacebook}
-                                        className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm"
+                                        className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm text-left"
                                     >
                                         Page Facebook
                                     </button>
@@ -206,8 +232,21 @@ const Footer = () => {
                         <div className="text-gray-400 text-sm">
                             © {currentYear} Agnambahy Mifety. Tous droits réservés.
                         </div>
-                        <div className="flex items-center space-x-6 text-sm text-gray-400">
-                            <span>Sport • Culture • Jeunesse</span>
+                        <div className="flex items-center space-x-4 text-sm text-gray-400 flex-wrap justify-center">
+                            <span className="flex items-center space-x-1">
+                                <FaTrophy className="w-3 h-3" />
+                                <span>Sport</span>
+                            </span>
+                            <span className="text-primary">•</span>
+                            <span className="flex items-center space-x-1">
+                                <FaHeart className="w-3 h-3" />
+                                <span>Culture</span>
+                            </span>
+                            <span className="text-secondary">•</span>
+                            <span className="flex items-center space-x-1">
+                                <FaUsers className="w-3 h-3" />
+                                <span>Jeunesse</span>
+                            </span>
                             <span className="text-primary">•</span>
                             <span>Farafangana</span>
                         </div>
