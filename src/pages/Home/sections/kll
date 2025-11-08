@@ -1,0 +1,286 @@
+import React, { useEffect, useRef, useState } from 'react'
+import aboutImage from '../../../assets/AM7.jpg'
+import { 
+  FaCalendarAlt,
+  FaCrosshairs,
+  FaHeart,
+  FaUsers,
+  FaEye,
+  FaBasketballBall,
+  FaHandsHelping,
+  FaLightbulb,
+  FaPalette,
+  FaChartLine,
+  FaStar,
+  FaTrophy,
+  FaAward,
+  FaMedal
+} from 'react-icons/fa'
+
+const About = () => {
+    const [isVisible, setIsVisible] = useState(false)
+    const sectionRef = useRef(null)
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true)
+                }
+            },
+            { threshold: 0.2 }
+        )
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current)
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current)
+            }
+        }
+    }, [])
+
+    return (
+        <section 
+            id="apropos" 
+            ref={sectionRef}
+            className="relative py-16 sm:py-20 bg-white overflow-hidden"
+        >
+            {/* Formes décoratives élégantes - même emplacement que le Hero */}
+            <div className="absolute inset-0 z-0">
+                {/* Forme triangulaire moderne en haut à gauche */}
+                <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-90">
+                    <div
+                        className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 animate-float-slow"
+                        style={{
+                            clipPath: 'polygon(0 0, 100% 0, 0 100%)'
+                        }}
+                    ></div>
+                </div>
+
+                {/* Forme hexagonale moderne en bas à droite */}
+                <div className="absolute bottom-0 right-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-90">
+                    <div
+                        className="w-full h-full bg-gradient-to-tl from-red-600 to-red-800 animate-float-slow"
+                        style={{
+                            clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+                            animationDelay: '2s'
+                        }}
+                    ></div>
+                </div>
+            </div>
+
+            {/* Overlay très léger */}
+            <div className="absolute inset-0 bg-white/5 z-10"></div>
+
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
+                {/* En-tête de section avec animation */}
+                <div className={`text-center mb-12 sm:mb-16 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
+                    <div className="inline-flex items-center justify-center mb-4">
+                        <div className="w-3 h-3 bg-blue-600 rounded-full mr-2 animate-pulse"></div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight">
+                            Notre <span className="text-blue-600">Histoire</span>
+                        </h2>
+                        <div className="w-3 h-3 bg-red-600 rounded-full ml-2 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                    </div>
+                    <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-red-600 mx-auto rounded-full line-grow"></div>
+                    <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto fade-in-up" style={{animationDelay: '0.3s'}}>
+                        Découvrez l'aventure extraordinaire d'Agnambahy Mifety
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
+                    {/* Image avec animations améliorées */}
+                    <div className={`relative ${isVisible ? 'fade-in-left' : 'opacity-0'}`}>
+                        <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl group transform hover:scale-[1.02] transition-all duration-500">
+                            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-red-600/20 z-10 mix-blend-overlay"></div>
+                            <img
+                                src={aboutImage}
+                                alt="Événement Agnambahy Mifety"
+                                className="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700"
+                            />
+                            {/* Effet de brillance au hover */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                        </div>
+                        {/* Élément décoratif flottant */}
+                        <div className="absolute -bottom-3 -right-3 w-20 h-20 bg-red-600 rounded-full opacity-20 animate-pulse-gentle"></div>
+                        <div className="absolute -top-3 -left-3 w-16 h-16 bg-blue-600 rounded-full opacity-20 animate-pulse-gentle" style={{animationDelay: '1s'}}></div>
+                    </div>
+
+                    {/* Contenu avec animations séquentielles */}
+                    <div className="space-y-8 sm:space-y-10">
+                        {/* Historique */}
+                        <div className={`relative scroll-reveal ${isVisible ? 'revealed' : ''}`} style={{transitionDelay: '0.2s'}}>
+                            <div className="flex items-start mb-6">
+                                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center shadow-lg mr-4 transform hover:rotate-12 transition-transform duration-300">
+                                    <FaCalendarAlt className="text-white text-lg" />
+                                </div>
+                                <div>
+                                    <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-3">
+                                        Notre <span className="text-blue-600">Parcours</span>
+                                    </h3>
+                                    <div className="space-y-3">
+                                        <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
+                                            Tout a commencé en <span className="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded-lg">décembre 2021</span> avec un simple tournoi de basketball 3x3 à Farafangana. 
+                                        </p>
+                                        <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
+                                            Au fil des éditions, nous avons grandi ensemble : <span className="bg-red-100 text-red-800 font-bold px-2 py-1 rounded-lg">basket 5x5</span>, <span className="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded-lg">beach volley</span>, <span className="bg-red-100 text-red-800 font-bold px-2 py-1 rounded-lg">foot à 7</span>, et une explosion culturelle avec des concours de freestyle et danses urbaines.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Objectifs avec nouveau design */}
+                        <div className={`relative scroll-reveal ${isVisible ? 'revealed' : ''}`} style={{transitionDelay: '0.4s'}}>
+                            <div className="flex items-start mb-6">
+                                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-red-600 to-red-800 rounded-xl flex items-center justify-center shadow-lg mr-4 transform hover:-rotate-12 transition-transform duration-300">
+                                    <FaCrosshairs className="text-white text-lg" />
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-6">
+                                        Nos <span className="text-red-600">Ambitions</span>
+                                    </h3>
+                                    
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                                        {/* Cartes bleues */}
+                                        <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
+                                            <div className="absolute top-4 right-4 opacity-20">
+                                                <FaHandsHelping className="text-3xl" />
+                                            </div>
+                                            <div className="flex items-center mb-3">
+                                                <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mr-3">
+                                                    <FaHandsHelping className="text-white text-sm" />
+                                                </div>
+                                                <h4 className="font-bold text-lg leading-tight">
+                                                    Promouvoir le sport et l'unité régionale
+                                                </h4>
+                                            </div>
+                                            <p className="text-blue-100 text-sm leading-relaxed opacity-90">
+                                                Créer des liens solides entre les communautés à travers la passion du sport
+                                            </p>
+                                            <div className="absolute bottom-0 left-0 w-full h-1 bg-white/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                                        </div>
+
+                                        <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
+                                            <div className="absolute top-4 right-4 opacity-20">
+                                                <FaPalette className="text-3xl" />
+                                            </div>
+                                            <div className="flex items-center mb-3">
+                                                <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mr-3">
+                                                    <FaPalette className="text-white text-sm" />
+                                                </div>
+                                                <h4 className="font-bold text-lg leading-tight">
+                                                    Développer la culture et les loisirs
+                                                </h4>
+                                            </div>
+                                            <p className="text-blue-100 text-sm leading-relaxed opacity-90">
+                                                Enrichir la vie culturelle de Farafangana avec des activités innovantes
+                                            </p>
+                                            <div className="absolute bottom-0 left-0 w-full h-1 bg-white/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                                        </div>
+
+                                        {/* Cartes rouges */}
+                                        <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-600 to-red-800 p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
+                                            <div className="absolute top-4 right-4 opacity-20">
+                                                <FaLightbulb className="text-3xl" />
+                                            </div>
+                                            <div className="flex items-center mb-3">
+                                                <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mr-3">
+                                                    <FaLightbulb className="text-white text-sm" />
+                                                </div>
+                                                <h4 className="font-bold text-lg leading-tight">
+                                                    Encourager les jeunes talents
+                                                </h4>
+                                            </div>
+                                            <p className="text-red-100 text-sm leading-relaxed opacity-90">
+                                                Donner une plateforme aux talents émergents pour briller et s'épanouir
+                                            </p>
+                                            <div className="absolute bottom-0 left-0 w-full h-1 bg-white/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                                        </div>
+
+                                        <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-600 to-red-800 p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300">
+                                            <div className="absolute top-4 right-4 opacity-20">
+                                                <FaChartLine className="text-3xl" />
+                                            </div>
+                                            <div className="flex items-center mb-3">
+                                                <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mr-3">
+                                                    <FaChartLine className="text-white text-sm" />
+                                                </div>
+                                                <h4 className="font-bold text-lg leading-tight">
+                                                    Attirer des partenaires engagés
+                                                </h4>
+                                            </div>
+                                            <p className="text-red-100 text-sm leading-relaxed opacity-90">
+                                                Construire un réseau solide pour soutenir la jeunesse et le développement
+                                            </p>
+                                            <div className="absolute bottom-0 left-0 w-full h-1 bg-white/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Valeurs */}
+                        <div className={`relative scroll-reveal ${isVisible ? 'revealed' : ''}`} style={{transitionDelay: '0.6s'}}>
+                            <div className="flex items-start">
+                                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-600 to-red-600 rounded-xl flex items-center justify-center shadow-lg mr-4 transform hover:scale-110 transition-transform duration-300">
+                                    <FaHeart className="text-white text-lg" />
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-6">
+                                        Nos <span className="bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">Valeurs</span>
+                                    </h3>
+                                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                                        {[
+                                            { icon: FaHandsHelping, name: 'Solidarité', color: 'blue' },
+                                            { icon: FaHeart, name: 'Respect', color: 'red' },
+                                            { icon: FaTrophy, name: 'Excellence', color: 'blue' },
+                                            { icon: FaUsers, name: 'Fierté', color: 'red' }
+                                        ].map((value, index) => (
+                                            <div key={index} className={`group text-center p-3 sm:p-4 rounded-xl bg-gradient-to-b ${value.color === 'blue' ? 'from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200' : 'from-red-50 to-red-100 hover:from-red-100 hover:to-red-200'} transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg`}>
+                                                <div className={`w-10 h-10 mx-auto mb-2 rounded-lg ${value.color === 'blue' ? 'bg-blue-600' : 'bg-red-600'} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                                                    <value.icon className="text-white text-sm" />
+                                                </div>
+                                                <span className={`font-bold text-sm ${value.color === 'blue' ? 'text-blue-800' : 'text-red-800'}`}>
+                                                    {value.name}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Statistiques avec nouveau design */}
+                <div className={`mt-12 sm:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{animationDelay: '0.8s'}}>
+                    {[
+                        { icon: FaAward, value: '3+', label: 'Éditions réussies', color: 'blue' },
+                        { icon: FaMedal, value: '15+', label: 'Disciplines', color: 'red' },
+                        { icon: FaUsers, value: '500+', label: 'Participants', color: 'blue' },
+                        { icon: FaStar, value: '10k+', label: 'Spectateurs', color: 'red' }
+                    ].map((stat, index) => (
+                        <div key={index} className={`group text-center p-4 sm:p-6 rounded-2xl ${stat.color === 'blue' ? 'bg-blue-600' : 'bg-red-600'} text-white shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl`}>
+                            <div className="relative">
+                                <stat.icon className={`text-2xl sm:text-3xl mx-auto mb-3 ${stat.color === 'blue' ? 'text-blue-200' : 'text-red-200'} group-hover:scale-110 transition-transform duration-300`} />
+                                <div className="text-2xl sm:text-3xl font-black mb-1 group-hover:scale-110 transition-transform duration-300">
+                                    {stat.value}
+                                </div>
+                                <div className="text-xs sm:text-sm font-semibold opacity-90">
+                                    {stat.label}
+                                </div>
+                                <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-8 h-0.5 ${stat.color === 'blue' ? 'bg-blue-400' : 'bg-red-400'} rounded-full group-hover:w-12 transition-all duration-300`}></div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default About;
