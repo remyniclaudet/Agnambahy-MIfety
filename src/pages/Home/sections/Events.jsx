@@ -172,25 +172,25 @@ const Events = () => {
         >
             {/* Nouvelles formes décoratives */}
             <div className="absolute inset-0 z-0">
-                {/* Forme en étoile moderne en haut à gauche */}
-                <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-90">
-                    <div
-                        className="w-full h-full bg-gradient-to-br from-primary to-primary/80 animate-float-slow"
-                        style={{
-                            clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)'
-                        }}
-                    ></div>
-                </div>
-
+{/* Forme coquillage élégant en haut à gauche */}
+<div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-90">
+    <div
+        className="w-full h-full bg-primary animate-float-slow"
+        style={{
+            clipPath: 'path("M 50 10 C 70 5, 90 15, 95 35 C 100 55, 85 75, 65 85 C 45 95, 25 85, 15 65 C 5 45, 20 25, 35 15 C 40 12, 45 10, 50 10 Z")',
+            filter: 'drop-shadow(0 4px 15px rgba(20, 184, 166, 0.25))'
+        }}
+    ></div>
+</div>
                 {/* Forme en vague moderne en bas à droite */}
                 <div className="absolute bottom-0 right-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-90">
-                    <div
-                        className="w-full h-full bg-gradient-to-tl from-secondary to-secondary/80 animate-float-slow"
-                        style={{
-                            clipPath: 'path("M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z")',
-                            animationDelay: '2s'
-                        }}
-                    ></div>
+                  <div
+        className="w-full h-full bg-gradient-to-br from-red-600 to-red-800 animate-float-slow"
+        style={{
+            clipPath: 'path("M 50 5 C 60 15, 75 10, 85 25 C 95 40, 90 60, 75 75 C 60 90, 40 90, 25 75 C 10 60, 5 40, 15 25 C 25 10, 40 15, 50 5 Z")',
+            filter: 'drop-shadow(0 0 10px rgba(220, 38, 38, 0.5))'
+        }}
+    ></div>
                 </div>
             </div>
 

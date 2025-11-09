@@ -68,9 +68,8 @@ const Sponsors = () => {
             className="relative py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden"
         >
             {/* Éléments décoratifs */}
-            <div className="absolute top-10 left-10 w-32 h-32 bg-primary/5 rounded-full float"></div>
             <div className="absolute bottom-10 right-10 w-40 h-40 bg-secondary/5 rounded-full float" style={{animationDelay: '2s'}}></div>
-            <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-primary/10 rounded-full pulse-slow"></div>
+
             
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* En-tête de section */}
@@ -107,16 +106,14 @@ const Sponsors = () => {
                         </div>
 
                         {/* Overlays pour effet de fondu */}
-                        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
-                        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+                        
+                        
                     </div>
                 </div>
 
                 {/* Appel aux partenaires */}
                 <div className={`bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-white relative overflow-hidden ${isVisible ? 'scale-in' : 'opacity-0 scale-95'}`}>
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32 pulse-slow"></div>
-                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full translate-y-24 -translate-x-24 pulse-slow" style={{animationDelay: '1s'}}></div>
-                    
+                   
                     <div className="relative z-10 text-center max-w-4xl mx-auto">
                         <h3 className="text-2xl md:text-4xl font-bold mb-6 fade-in-up">
                             Rejoignez l'aventure <span className="text-amber-200">Agnambahy Mifety</span> !
@@ -147,8 +144,6 @@ const Sponsors = () => {
                                 En savoir plus
                             </button>
                         </div>
-
-                        {/* Reste inchangé... */}
                     </div>
                 </div>
             </div>
