@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import eventImage from '../../../assets/AM4.jpg';
+import eventImage from '../../../assets/AM5.jpg';
 import archive2024 from '../../../assets/AM2.jpg';
 import archive2023 from '../../../assets/AM2.jpg';
 import archive2022 from '../../../assets/AM2.jpg';
@@ -164,25 +164,40 @@ const Events = () => {
         { year: "2021", image: archive2021, title: "Lancement officiel", participants: "150+", disciplines: "4" }
     ];
 
-    // Écouter l'événement personnalisé pour changer d'onglet
-    const handleTabChange = (event) => {
-        setActiveTab(event.detail);
-    };
-
-    window.addEventListener('changeEventsTab', handleTabChange);
-
     return (
         <section 
             id="events" 
             ref={sectionRef}
-            className="relative py-20 bg-gray-50 overflow-hidden"
+            className="relative py-20 bg-white overflow-hidden"
         >
-            {/* Éléments décoratifs avec animations */}
-            <div className={`absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2 float ${isVisible ? 'opacity-100' : 'opacity-0'}`}></div>
-            <div className={`absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full translate-x-1/2 translate-y-1/2 float ${isVisible ? 'opacity-100' : 'opacity-0'}`} 
-                 style={{animationDelay: '1s'}}></div>
-            
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Nouvelles formes décoratives */}
+            <div className="absolute inset-0 z-0">
+                {/* Forme en étoile moderne en haut à gauche */}
+                <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-90">
+                    <div
+                        className="w-full h-full bg-gradient-to-br from-primary to-primary/80 animate-float-slow"
+                        style={{
+                            clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)'
+                        }}
+                    ></div>
+                </div>
+
+                {/* Forme en vague moderne en bas à droite */}
+                <div className="absolute bottom-0 right-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-90">
+                    <div
+                        className="w-full h-full bg-gradient-to-tl from-secondary to-secondary/80 animate-float-slow"
+                        style={{
+                            clipPath: 'path("M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z")',
+                            animationDelay: '2s'
+                        }}
+                    ></div>
+                </div>
+            </div>
+
+            {/* Overlay très léger */}
+            <div className="absolute inset-0 bg-white/5 z-10"></div>
+
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
                 {/* En-tête de section avec animation */}
                 <div className={`text-center mb-16 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
                     <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
@@ -194,30 +209,30 @@ const Events = () => {
                     <div className={`flex flex-wrap justify-center gap-4 mb-12 ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{animationDelay: '0.2s'}}>
                         <button
                             onClick={() => setActiveTab('prochaine-edition')}
-                            className={`px-5 py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-sm ${
+                            className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-sm border-2 ${
                                 activeTab === 'prochaine-edition'
-                                    ? 'bg-primary text-white shadow-lg scale-105'
-                                    : 'bg-white text-gray-700 hover:bg-primary/10 hover:text-primary card-hover'
+                                    ? 'bg-primary text-white shadow-lg scale-105 border-primary'
+                                    : 'bg-white text-gray-700 hover:bg-primary/10 hover:text-primary card-hover border-gray-200'
                             }`}
                         >
                             Prochaine édition
                         </button>
                         <button
                             onClick={() => setActiveTab('disciplines')}
-                            className={`px-5 py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-sm ${
+                            className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-sm border-2 ${
                                 activeTab === 'disciplines'
-                                    ? 'bg-primary text-white shadow-lg scale-105'
-                                    : 'bg-white text-gray-700 hover:bg-primary/10 hover:text-primary card-hover'
+                                    ? 'bg-primary text-white shadow-lg scale-105 border-primary'
+                                    : 'bg-white text-gray-700 hover:bg-primary/10 hover:text-primary card-hover border-gray-200'
                             }`}
                         >
                             Disciplines
                         </button>
                         <button
                             onClick={() => setActiveTab('archives')}
-                            className={`px-5 py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-sm ${
+                            className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 text-sm border-2 ${
                                 activeTab === 'archives'
-                                    ? 'bg-primary text-white shadow-lg scale-105'
-                                    : 'bg-white text-gray-700 hover:bg-primary/10 hover:text-primary card-hover'
+                                    ? 'bg-primary text-white shadow-lg scale-105 border-primary'
+                                    : 'bg-white text-gray-700 hover:bg-primary/10 hover:text-primary card-hover border-gray-200'
                             }`}
                         >
                             Archives
@@ -243,63 +258,67 @@ const Events = () => {
 
                             {/* Informations principales */}
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                                {/* Image */}
+                                {/* Image avec le même style que About */}
                                 <div className={`relative ${isVisible ? 'fade-in-left' : 'opacity-0'}`}>
-                                    <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl image-zoom group">
+                                    <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl group transform hover:scale-[1.02] transition-all duration-500">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 z-10 mix-blend-overlay"></div>
                                         <img
                                             src={eventImage}
                                             alt="Prochaine édition Agnambahy Mifety"
-                                            className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
+                                            className="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700"
                                         />
-                                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                            <span className="text-white text-base font-semibold bg-primary/80 px-3 py-1.5 rounded-full scale-in">
-                                                Édition 2025
-                                            </span>
-                                        </div>
+                                        {/* Effet de brillance au hover */}
+                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                                     </div>
-                                    <div className="absolute -bottom-4 -right-4 w-full h-full border-4 border-primary rounded-2xl z-0 pulse-slow"></div>
+                                    {/* Élément décoratif flottant */}
+                                    <div className="absolute -bottom-3 -right-3 w-20 h-20 bg-secondary rounded-full opacity-100 animate-pulse-gentle"></div>
+                                    <div className="absolute -top-3 -left-3 w-16 h-16 bg-primary rounded-full opacity-100 animate-pulse-gentle" style={{ animationDelay: '1s' }}></div>
                                 </div>
 
-                                {/* Informations dates et lieu */}
+                                {/* Informations dates et lieu - NOUVEAU DESIGN */}
                                 <div className={`space-y-8 ${isVisible ? 'fade-in-right' : 'opacity-0'}`}>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div className="card-hover p-6 rounded-xl bg-primary/5 border-l-4 border-primary transform hover:scale-105 transition-all duration-300 fade-in-up" style={{animationDelay: '0.4s'}}>
+                                    {/* Nouveau design pour Date et Lieu */}
+                                    <div className="grid grid-cols-1 gap-6">
+                                        <div className="group relative overflow-hidden rounded-2xl bg-primary p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300 fade-in-up" style={{animationDelay: '0.4s'}}>
                                             <div className="flex items-center space-x-4">
-                                                <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center icon-bounce">
-                                                    <FaCalendarAlt className="text-primary text-lg" />
+                                                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center icon-bounce">
+                                                    <FaCalendarAlt className="text-white text-xl" />
                                                 </div>
-                                                <div>
-                                                    <h4 className="font-semibold text-gray-900">Dates</h4>
-                                                    <p className="text-base text-primary font-bold">22-28 DÉC 2025</p>
+                                                <div className="flex-1">
+                                                    <h4 className="font-bold text-lg mb-1">Dates</h4>
+                                                    <p className="text-white/90 text-base font-semibold">22 - 28 Décembre 2025</p>
                                                 </div>
                                             </div>
+                                            <div className="absolute bottom-0 left-0 w-full h-1 bg-white/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                                         </div>
 
-                                        <div className="card-hover p-6 rounded-xl bg-secondary/5 border-l-4 border-secondary transform hover:scale-105 transition-all duration-300 fade-in-up" style={{animationDelay: '0.5s'}}>
+                                        <div className="group relative overflow-hidden rounded-2xl bg-secondary p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300 fade-in-up" style={{animationDelay: '0.5s'}}>
                                             <div className="flex items-center space-x-4">
-                                                <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center icon-bounce">
-                                                    <FaMapMarkerAlt className="text-secondary text-lg" />
+                                                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center icon-bounce">
+                                                    <FaMapMarkerAlt className="text-white text-xl" />
                                                 </div>
-                                                <div>
-                                                    <h4 className="font-semibold text-gray-900">Lieu</h4>
-                                                    <p className="text-base text-secondary font-bold">Farafangana</p>
+                                                <div className="flex-1">
+                                                    <h4 className="font-bold text-lg mb-1">Lieu</h4>
+                                                    <p className="text-white/90 text-base font-semibold">Farafangana, Madagascar</p>
+                                                
                                                 </div>
                                             </div>
+                                            <div className="absolute bottom-0 left-0 w-full h-1 bg-white/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                                         </div>
                                     </div>
 
-                                    <div className="bg-gradient-to-r from-primary/5 to-secondary/5 p-6 rounded-xl border-l-4 border-primary card-hover transform hover:scale-102 transition-all duration-300 fade-in-up" style={{animationDelay: '0.6s'}}>
-                                        <h4 className="font-semibold text-gray-900 mb-2">À propos de l'édition 2025</h4>
-                                        <p className="text-gray-600">
-                                            Cette édition réunira performances sportives, expressions culturelles et moments festifs 
-                                            dans une ambiance conviviale et compétitive.
+                                    {/* À propos de l'édition - Texte simple */}
+                                    <div className="space-y-4 fade-in-up" style={{animationDelay: '0.6s'}}>
+                                        <p className="text-gray-700 leading-relaxed text-base">
+                                            Cette année, Agnambahy Mifety reunira performances sportives, expressions culturelles et moments festifs dans une ambiance conviviale et competitives. 
                                         </p>
+                                        
                                     </div>
 
                                     <div className="text-center lg:text-left slide-in-bottom" style={{animationDelay: '0.7s'}}>
                                         <button
                                             onClick={handleInscriptionClick}
-                                            className="btn-primary btn-fill text-base px-6 py-3 transform hover:scale-105 transition-all duration-300"
+                                            className="btn-primary btn-fill text-base px-8 py-4 transform hover:scale-105 transition-all duration-300 font-bold rounded-xl"
                                         >
                                             S'inscrire maintenant
                                         </button>
@@ -313,7 +332,6 @@ const Events = () => {
                                     <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4 fade-in-up">
                                         Disciplines <span className="text-secondary">Sportives</span>
                                     </h3>
-                                    <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4 line-grow"></div>
                                     <p className="text-gray-600 max-w-2xl mx-auto fade-in-up" style={{animationDelay: '0.2s'}}>
                                         Compétitions ouvertes à tous, mêlant performance, convivialité et esprit sportif
                                     </p>
@@ -323,7 +341,7 @@ const Events = () => {
                                     {disciplinesSportives.map((discipline, index) => (
                                         <div 
                                             key={index}
-                                            className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 card-hover group scroll-reveal ${
+                                            className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 card-hover group scroll-reveal ${
                                                 isVisible ? 'revealed' : ''
                                             }`}
                                             style={{transitionDelay: `${index * 0.1}s`}}
@@ -336,7 +354,7 @@ const Events = () => {
                                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                                 />
                                                 <div className="absolute top-3 right-3">
-                                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white ${
+                                                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg ${
                                                         discipline.color === 'primary' ? 'bg-primary' : 'bg-secondary'
                                                     }`}>
                                                         <discipline.icon className="text-lg" />
@@ -347,7 +365,7 @@ const Events = () => {
                                             
                                             {/* Contenu en bas */}
                                             <div className="p-5">
-                                                <h4 className={`font-semibold text-lg mb-3 group-hover:translate-x-1 transition-transform duration-300 ${
+                                                <h4 className={`font-bold text-lg mb-3 group-hover:translate-x-1 transition-transform duration-300 ${
                                                     discipline.color === 'primary' ? 'text-primary' : 'text-secondary'
                                                 }`}>
                                                     {discipline.title}
@@ -368,50 +386,45 @@ const Events = () => {
                                 </div>
                             </div>
 
-                            {/* Animations Culturelles */}
+                            {/* Animations Culturelles - NOUVEAU DESIGN */}
                             <div className={`scroll-reveal ${isVisible ? 'revealed' : ''}`} style={{transitionDelay: '0.3s'}}>
                                 <div className="text-center mb-12">
                                     <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4 fade-in-up">
-                                        Animations <span className="text-secondary">Culturelles & Festives</span>
+                                        Animations <span className="text-secondary">Culturelles</span>
                                     </h3>
-                                    <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4 line-grow"></div>
+
                                     <p className="text-gray-600 max-w-2xl mx-auto fade-in-up" style={{animationDelay: '0.4s'}}>
-                                        Valorisation du patrimoine culturel, engagement citoyen et moments festifs
+                                        Découvrez la richesse culturelle de Farafangana à travers des activités uniques et engageantes
                                     </p>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                                     {animationsCulturelles.map((animation, index) => (
                                         <div 
                                             key={index}
-                                            className={`p-6 rounded-xl border-l-4 transition-all duration-500 card-hover group scroll-reveal ${
+                                            className={`group relative overflow-hidden rounded-2xl p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300 scroll-reveal ${
                                                 isVisible ? 'revealed' : ''
                                             } ${
                                                 animation.color === 'primary' 
-                                                    ? 'border-primary bg-primary/5 hover:bg-primary/10' 
-                                                    : 'border-secondary bg-secondary/5 hover:bg-secondary/10'
+                                                    ? 'bg-primary' 
+                                                    : 'bg-secondary'
                                             }`}
                                             style={{transitionDelay: `${index * 0.1}s`}}
                                         >
                                             <div className="flex items-start space-x-4">
-                                                <div className={`w-12 h-12 rounded-full flex items-center justify-center text-lg icon-bounce ${
-                                                    animation.color === 'primary' ? 'bg-primary/20' : 'bg-secondary/20'
-                                                }`}>
-                                                    <animation.icon className={
-                                                        animation.color === 'primary' ? 'text-primary' : 'text-secondary'
-                                                    } />
+                                                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-xl icon-bounce bg-white/20">
+                                                    <animation.icon className="text-white" />
                                                 </div>
                                                 <div className="flex-1">
-                                                    <h4 className={`font-semibold text-base mb-3 group-hover:translate-x-1 transition-transform duration-300 ${
-                                                        animation.color === 'primary' ? 'text-primary' : 'text-secondary'
-                                                    }`}>
+                                                    <h4 className="font-bold text-lg mb-3 group-hover:translate-x-1 transition-transform duration-300">
                                                         {animation.title}
                                                     </h4>
-                                                    <p className="text-sm text-gray-600 leading-relaxed">
+                                                    <p className="text-white/90 leading-relaxed text-base">
                                                         {animation.description}
                                                     </p>
                                                 </div>
                                             </div>
+                                            <div className="absolute bottom-0 left-0 w-full h-1 bg-white/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                                         </div>
                                     ))}
                                 </div>
@@ -421,19 +434,19 @@ const Events = () => {
                             <div className={`text-center ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{animationDelay: '0.8s'}}>
                                 <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-8 rounded-2xl card-hover transform hover:scale-102 transition-all duration-300">
                                     <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-                                        Prêt à participer à l'aventure ?
+                                        Prêt à vivre l'aventure ?
                                     </h3>
                                     <div className="w-12 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4 line-grow"></div>
-                                    <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                                        Rejoignez-nous pour cette édition 2025 exceptionnelle et vivez des moments inoubliables 
-                                        de sport, de culture et de festivités.
+                                    <p className="text-gray-600 mb-6 max-w-2xl mx-auto text-base">
+                                        Rejoignez-nous pour cette édition 2025 exceptionnelle et créez des souvenirs 
+                                        inoubliables autour du sport, de la culture et de la fête.
                                     </p>
                                     <div>
                                         <button
                                             onClick={handleInscriptionClick}
-                                            className="btn-primary btn-fill text-base px-6 py-3 transform hover:scale-105 transition-all duration-300"
+                                            className="btn-primary btn-fill text-base px-8 py-4 transform hover:scale-105 transition-all duration-300 font-bold rounded-xl"
                                         >
-                                            S'inscrire maintenant
+                                            Je participe à l'aventure
                                         </button>
                                     </div>
                                 </div>
@@ -505,41 +518,38 @@ const Events = () => {
                                 </div>
                             </div>
 
-                            {/* Animations Culturelles */}
+                            {/* Animations Culturelles & Festives - MÊME STYLE QUE ANIMATIONS CULTURELLES */}
                             <div className={`scroll-reveal ${isVisible ? 'revealed' : ''}`} style={{transitionDelay: '0.2s'}}>
                                 <h4 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
                                     Animations <span className="text-secondary">Culturelles & Festives</span>
                                 </h4>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                                     {animationsCulturelles.map((animation, index) => (
                                         <div 
                                             key={index}
-                                            className={`p-6 rounded-xl border-l-4 transition-all duration-500 card-hover group ${
+                                            className={`group relative overflow-hidden rounded-2xl p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300 scroll-reveal ${
                                                 isVisible ? 'revealed' : ''
                                             } ${
                                                 animation.color === 'primary' 
-                                                    ? 'border-primary bg-primary/5 hover:bg-primary/10' 
-                                                    : 'border-secondary bg-secondary/5 hover:bg-secondary/10'
+                                                    ? 'bg-primary' 
+                                                    : 'bg-secondary'
                                             }`}
                                             style={{transitionDelay: `${index * 0.1}s`}}
                                         >
-                                            <div className="text-center">
-                                                <div className={`w-16 h-16 rounded-full flex items-center justify-center text-xl mx-auto mb-4 icon-bounce ${
-                                                    animation.color === 'primary' ? 'bg-primary/20' : 'bg-secondary/20'
-                                                }`}>
-                                                    <animation.icon className={
-                                                        animation.color === 'primary' ? 'text-primary' : 'text-secondary'
-                                                    } />
+                                            <div className="flex items-start space-x-4">
+                                                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-xl icon-bounce bg-white/20">
+                                                    <animation.icon className="text-white" />
                                                 </div>
-                                                <h4 className={`font-semibold text-base mb-3 ${
-                                                    animation.color === 'primary' ? 'text-primary' : 'text-secondary'
-                                                }`}>
-                                                    {animation.title}
-                                                </h4>
-                                                <p className="text-sm text-gray-600 leading-relaxed">
-                                                    {animation.description}
-                                                </p>
+                                                <div className="flex-1">
+                                                    <h4 className="font-bold text-lg mb-3 group-hover:translate-x-1 transition-transform duration-300">
+                                                        {animation.title}
+                                                    </h4>
+                                                    <p className="text-white/90 leading-relaxed text-base">
+                                                        {animation.description}
+                                                    </p>
+                                                </div>
                                             </div>
+                                            <div className="absolute bottom-0 left-0 w-full h-1 bg-white/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                                         </div>
                                     ))}
                                 </div>
@@ -548,7 +558,7 @@ const Events = () => {
                             <div className={`text-center ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{animationDelay: '0.5s'}}>
                                 <button
                                     onClick={handleInscriptionClick}
-                                    className="btn-primary btn-fill text-base px-6 py-3 transform hover:scale-105 transition-all duration-300"
+                                    className="btn-primary btn-fill text-base px-8 py-4 transform hover:scale-105 transition-all duration-300 font-bold rounded-xl"
                                 >
                                     Choisir ma discipline
                                 </button>
