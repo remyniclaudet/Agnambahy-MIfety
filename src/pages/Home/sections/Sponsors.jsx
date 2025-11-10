@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom';
 // Importe les logos de tes sponsors
 import sponsor1 from '../../../assets/sponsors/Yas.png';
 import sponsor2 from '../../../assets/sponsors/fmbb lgo.png';
-import sponsor3 from '../../../assets/sponsors/Yas.png';
-import sponsor4 from '../../../assets/sponsors/fmbb lgo.png';
-import sponsor5 from '../../../assets/sponsors/Yas.png';
-import sponsor6 from '../../../assets/sponsors/fmbb lgo.png';
-import sponsor7 from '../../../assets/sponsors/Yas.png';
-import sponsor8 from '../../../assets/sponsors/fmbb lgo.png';
+import sponsor3 from '../../../assets/sponsors/ligue.png';
+import sponsor4 from '../../../assets/sponsors/4.png';
+import sponsor5 from '../../../assets/sponsors/cap.png';
+import sponsor6 from '../../../assets/sponsors/csm.png';
+import sponsor7 from '../../../assets/sponsors/nosyw.png';
+import sponsor8 from '../../../assets/sponsors/iay.png';
 
 const Sponsors = () => {
     const navigate = useNavigate();
@@ -43,8 +43,6 @@ const Sponsors = () => {
             contactSection.scrollIntoView({ behavior: "smooth" });
         } else {
             console.warn("La section #contact est introuvable !");
-            // Si tu veux, tu peux rediriger avec React Router :
-            // navigate("/#contact");
         }
     };
 
@@ -83,36 +81,39 @@ const Sponsors = () => {
                     </p>
                 </div>
 
-                {/* Section défilement des partenaires */}
-                <div className="mb-20">
-                    <div className="relative w-screen -mx-4 sm:-mx-6 lg:-mx-8">
-                        <div className="overflow-hidden">
-                            <div className="animate-scroll flex space-x-8 py-6">
+                {/* SECTION DÉFILEMENT CORRIGÉE */}
+                <div className="relative w-full overflow-visible">
+                    {/* Zone de défilement qui déborde */}
+                    <div className="relative -mx-4 sm:-mx-6 lg:-mx-8">
+                        {/* Overlays pour effet de fondu */}
+                        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+                        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+                        
+                        {/* Conteneur de défilement */}
+                        <div className="overflow-hidden py-10">
+                            <div className="animate-scroll flex items-center space-x-8 px-4">
                                 {allScrollingSponsors.map((sponsor, index) => (
                                     <div
                                         key={`${sponsor.id}-${index}`}
                                         className="flex-shrink-0 group"
                                     >
-                                        <div className="bg-white p-6 rounded-xl shadow-lg transition-all duration-300 card-hover min-w-[160px] h-32 flex items-center justify-center">
+                                        {/* Conteneur de logo avec taille fixe et espacement constant */}
+                                        <div className="flex items-center justify-center transition-all duration-300 h-24 w-32 mx-2">
                                             <img
                                                 src={sponsor.logo}
                                                 alt={sponsor.name}
-                                                className="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110"
+                                                className="max-h-16 max-w-24 w-auto h-auto object-contain transition-all duration-300 group-hover:scale-110 opacity-80 hover:opacity-100"
                                             />
                                         </div>
                                     </div>
                                 ))}
                             </div>
                         </div>
-
-                        {/* Overlays pour effet de fondu */}
-                        
-                        
                     </div>
                 </div>
 
                 {/* Appel aux partenaires */}
-                <div className={`bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-white relative overflow-hidden ${isVisible ? 'scale-in' : 'opacity-0 scale-95'}`}>
+                <div className={`bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-white relative overflow-hidden mt-16 ${isVisible ? 'scale-in' : 'opacity-0 scale-95'}`}>
                    
                     <div className="relative z-10 text-center max-w-4xl mx-auto">
                         <h3 className="text-2xl md:text-4xl font-bold mb-6 fade-in-up">
@@ -147,6 +148,26 @@ const Sponsors = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Styles CSS pour l'animation de défilement */}
+            <style jsx>{`
+                @keyframes scroll {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(calc(-50% - 1rem));
+                    }
+                }
+                .animate-scroll {
+                    animation: scroll 30s linear infinite;
+                    display: flex;
+                    width: max-content;
+                }
+                .animate-scroll:hover {
+                    animation-play-state: paused;
+                }
+            `}</style>
         </section>
     );
 };

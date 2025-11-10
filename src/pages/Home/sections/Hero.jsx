@@ -19,24 +19,28 @@ const Hero = () => {
           className="absolute inset-0 w-full h-full object-cover z-0 image-zoom"
         />
 
-        {/* Quarts de cercle responsifs */}
+        {/* Formes décoratives identiques à l'image */}
         <div className="absolute inset-0 z-10">
-          {/* Quart de cercle en haut à gauche */}
-          <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-80">
+          {/* Forme rouge en haut à gauche - plus petite et arrondie */}
+          <div className="absolute top-0 left-0 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 opacity-90">
             <div
               className="w-full h-full bg-red-600 animate-float-slow"
               style={{
-                clipPath: 'circle(80% at 0% 0%)'
+                clipPath: 'circle(60% at 0% 0%)',
+                borderBottomRightRadius: '60%'
               }}
             ></div>
           </div>
 
-          {/* Quart de cercle en bas à droite */}
-          <div className="absolute bottom-0 right-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-100">
+          {/* Forme bleue en bas à droite - plus large et étirée */}
+          <div className="absolute bottom-0 right-0 w-36 h-36 sm:w-48 sm:h-48 md:w-60 md:h-60 lg:w-72 lg:h-72 xl:w-84 xl:h-84 opacity-95">
             <div
               className="w-full h-full bg-blue-600 animate-float-slow"
               style={{
-                clipPath: 'circle(100% at 100% 100%)',
+                clipPath: 'circle(75% at 100% 100%)',
+                borderTopLeftRadius: '80%',
+                borderTopRightRadius: '20%',
+                borderBottomLeftRadius: '20%',
                 animationDelay: '2s'
               }}
             ></div>
