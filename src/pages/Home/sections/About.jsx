@@ -218,7 +218,7 @@ const About = () => {
                                     { icon: FaTrophy, name: 'Excellence' },
                                     { icon: FaUsers, name: 'Fierté' }
                                 ].map((value, index) => (
-                                    <div key={index} className="group text-center p-4 rounded-lg bg-gray-50 hover:bg-white transform hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md border border-gray-100">
+                                    <div key={index} className="group text-center p-4 rounded-lg  hover:bg-white transform hover:scale-105 transition-all duration-300 ">
                                         <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                             <value.icon className="text-white text-lg" />
                                         </div>

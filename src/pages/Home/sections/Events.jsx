@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import eventImage from '../../../assets/AM5.jpg';
 import archive2024 from '../../../assets/AM2.jpg';
-import archive2023 from '../../../assets/AM2.jpg';
-import archive2022 from '../../../assets/AM2.jpg';
-import archive2021 from '../../../assets/AM2.jpg';
+import archive2023 from '../../../assets/2023.jpg';
+import archive2022 from '../../../assets/2022.jpg';
+import archive2021 from '../../../assets/2021.jpg';
 
 // Import des images pour les disciplines sportives
 import basket3x3 from '../../../assets/disciplines/3x3.jpeg';
@@ -158,10 +158,10 @@ const Events = () => {
     ];
 
     const archives = [
-        { year: "2024", image: archive2024, title: "Édition 2024", participants: "450+", disciplines: "12" },
-        { year: "2023", image: archive2023, title: "Édition 2023", participants: "380+", disciplines: "10" },
-        { year: "2022", image: archive2022, title: "Édition 2022", participants: "300+", disciplines: "8" },
-        { year: "2021", image: archive2021, title: "Lancement officiel", participants: "150+", disciplines: "4" }
+        { year: "2024", image: archive2024, title: "Édition 2024", participants: "200+", disciplines: "6" },
+        { year: "2023", image: archive2023, title: "Édition 2023", participants: "80+", disciplines: "2" },
+        { year: "2022", image: archive2022, title: "Édition 2022", participants: "60+", disciplines: "2" },
+        { year: "2021", image: archive2021, title: "Lancement officiel", participants: "40+", disciplines: "1" }
     ];
 
     return (
