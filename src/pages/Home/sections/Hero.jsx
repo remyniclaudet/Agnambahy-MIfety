@@ -81,12 +81,12 @@ const Hero = () => {
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center slide-in-bottom">
             <button
               onClick={handleInscriptionClick}
-              className="btn-primary btn-fill text-sm sm:text-base xl:text-base scale-in px-4 py-3 sm:px-6 sm:py-3"
+              className="btn-primary btn-fill text-base sm:text-base xl:text-base scale-in px-4 py-3 sm:px-6 sm:py-3 font-bold rounded-xl"
             >
               S'inscrire à la prochaine édition
             </button>
 
-            <button className="btn-secondary btn-fill text-sm sm:text-base xl:text-base scale-in px-4 py-3 sm:px-6 sm:py-3" style={{ animationDelay: '0.2s' }}>
+            <button className="btn-secondary btn-fill text-sm sm:text-base xl:text-base scale-in px-4 py-3 sm:px-6 sm:py-3 font-bold rounded-xl" style={{ animationDelay: '0.2s' }}>
               Devenir sponsor
             </button>
           </div>

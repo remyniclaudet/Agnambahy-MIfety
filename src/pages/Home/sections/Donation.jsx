@@ -261,16 +261,15 @@ const Donation = () => {
                         <div className={`text-center space-y-4 scroll-reveal ${isVisible ? 'revealed' : ''}`}>
                             <button
                                 onClick={scrollToContact}
-                                className="btn-primary btn-fill text-base px-8 py-4 transform hover:scale-105 transition-all duration-300 w-full max-w-sm flex items-center justify-center space-x-3"
+                                className="btn-primary btn-fill text-base px-8 py-3 transform hover:scale-105 transition-all duration-300 w-full max-w-sm flex items-center justify-center space-x-3 font-bold rounded-xl"
                             >
-                                <FaDonate className="w-5 h-5" />
                                 <span className="text-lg">Faire un don maintenant</span>
                             </button>
                             <button
                                 onClick={scrollToContact}
-                                className="btn-secondary btn-fill text-base px-8 py-4 transform hover:scale-105 transition-all duration-300 w-full max-w-sm flex items-center justify-center space-x-3"
+                                className="btn-secondary btn-fill text-base px-8 py- transform hover:scale-105 transition-all duration-300 w-full max-w-sm flex items-center justify-center space-x-3 font-bold rounded-xl"
                             >
-                                <FaPhone className="w-5 h-5" />
+                               
                                 <span className="text-lg">Nous contacter</span>
                             </button>
                         </div>
@@ -347,16 +346,15 @@ const Donation = () => {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <button
                             onClick={scrollToContact}
-                            className="btn-primary btn-fill text-base px-8 py-4 transform hover:scale-105 transition-all duration-300 flex items-center space-x-3"
+                            className="btn-primary btn-fill text-base px-8 py-3 transform hover:scale-105 transition-all duration-300 flex items-center space-x-3 font-bold rounded-xl"
                         >
-                            <FaDonate className="w-5 h-5" />
+                          
                             <span>Faire un don maintenant</span>
                         </button>
                         <button
                             onClick={scrollToContact}
-                            className="btn-secondary btn-fill text-base px-8 py-4 transform hover:scale-105 transition-all duration-300 flex items-center space-x-3"
+                            className="btn-secondary btn-fill text-base px-8 py-3 transform hover:scale-105 transition-all duration-300 flex items-center space-x-3 font-bold rounded-xl"
                         >
-                            <FaInfoCircle className="w-5 h-5" />
                             <span>En savoir plus</span>
                         </button>
                     </div>

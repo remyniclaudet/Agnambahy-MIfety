@@ -134,13 +134,13 @@ const Sponsors = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                             <button 
                                 onClick={scrollToContact}
-                                className="btn-primary btn-fill text-base px-6 py-3 transform hover:scale-105 transition-all duration-300"
+                                className="btn-primary btn-fill text-base px-6 py-3 transform hover:scale-105 transition-all duration-300 font-bold rounded-xl"
                             >
                                 Devenir sponsor
                             </button>
                             <button 
                                 onClick={scrollToContact}
-                                className="btn-secondary btn-fill text-base px-6 py-3 transform hover:scale-105 transition-all duration-300"
+                                className="btn-secondary btn-fill text-base px-6 py-3 transform hover:scale-105 transition-all duration-300 font-bold rounded-xl"
                             >
                                 En savoir plus
                             </button>
