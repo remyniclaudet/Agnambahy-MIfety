@@ -205,7 +205,7 @@ export default function InscriptionWizard() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      
     </div>
   )
 }
