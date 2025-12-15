@@ -13,7 +13,7 @@ import football from '../../../assets/disciplines/football.jpeg';
 import volley from '../../../assets/disciplines/Volley.jpeg';
 import handball from '../../../assets/disciplines/handball.png';
 import kickboxing from '../../../assets/disciplines/box.jpg';
-import course from '../../../assets/disciplines/posy.jpg';
+import course from '../../../assets/disciplines/posy.jpeg';
 
 // Import des icônes React
 import { 
