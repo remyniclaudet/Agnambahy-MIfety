@@ -1,8 +1,8 @@
 substitutions:
-  _REGION: europe-west1          # adapte ta région
-  _REPO: mon-repo                # nom du dépôt Artifact Registry
-  _IMAGE: mon-app
-  _CLUSTER: mon-cluster
+  _REGION: europe-west1
+  _REPO: repo-tp          # ← tu as créé "repo-tp", pas "mon-repo"
+  _IMAGE: agnambahy-mifety
+  _CLUSTER: remy-cluster  # ← ton cluster s'appelle "remy-cluster"
   _CLUSTER_ZONE: europe-west1-b
 
 steps:
