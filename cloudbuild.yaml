@@ -1,0 +1,48 @@
+substitutions:
+  _REGION: europe-west1          # adapte ta région
+  _REPO: mon-repo                # nom du dépôt Artifact Registry
+  _IMAGE: mon-app
+  _CLUSTER: mon-cluster
+  _CLUSTER_ZONE: europe-west1-b
+
+steps:
+  # 1. Build de l'image Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - build
+      - -t
+      - '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_IMAGE:$SHORT_SHA'
+      - -t
+      - '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_IMAGE:latest'
+      - .
+
+  # 2. Push vers Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - push
+      - --all-tags
+      - '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_IMAGE'
+
+  # 3. Substitue le tag d'image dans le manifest
+  - name: 'gcr.io/cloud-builders/gke-deploy'
+    args:
+      - prepare
+      - --filename=k8s/
+      - --image=$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_IMAGE:$SHORT_SHA
+      - --output=k8s-output/
+
+  # 4. Déploiement sur GKE
+  - name: 'gcr.io/cloud-builders/gke-deploy'
+    args:
+      - apply
+      - --filename=k8s-output/
+      - --cluster=$_CLUSTER
+      - --location=$_CLUSTER_ZONE
+
+images:
+  - '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_IMAGE:$SHORT_SHA'
+  - '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_IMAGE:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: E2_HIGHCPU_8

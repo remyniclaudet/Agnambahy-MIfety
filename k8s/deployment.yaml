@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mon-app
+  labels:
+    app: mon-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mon-app
+  template:
+    metadata:
+      labels:
+        app: mon-app
+    spec:
+      containers:
+        - name: mon-app
+          image: REGION-docker.pkg.dev/PROJECT_ID/mon-repo/mon-app:latest
+          # ↑ Cloud Build remplace ce tag au déploiement
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "128Mi"
+          # Variables Firebase injectées via Secret Manager ou ConfigMap
+          env:
+            - name: VITE_FIREBASE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: firebase-secrets
+                  key: api-key
